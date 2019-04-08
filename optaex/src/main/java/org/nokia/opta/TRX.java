@@ -19,16 +19,8 @@ public class TRX {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public Band getBand() {
 		return band;
-	}
-
-	public void setBand(Band band) {
-		this.band = band;
 	}
 
 	@PlanningVariable(valueRangeProviderRefs = { "frequencyRange" })
@@ -42,14 +34,6 @@ public class TRX {
 
 	public void addNeighbour(TRX trx) {
 		this.neighbours.add(trx);
-	}
-
-	public void removeNeighbour(TRX trx) {
-		this.neighbours.remove(trx);
-	}
-
-	public void removeNeighbour(int trx) {
-		this.neighbours.remove(trx);
 	}
 
 	public TRX(int id, Band band) {

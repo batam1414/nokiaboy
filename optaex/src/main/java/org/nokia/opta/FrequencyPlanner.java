@@ -2,37 +2,38 @@ package org.nokia.opta;
 
 import java.util.List;
 
+import org.optaplanner.core.api.domain.solution.PlanningEntityCollectionProperty;
+import org.optaplanner.core.api.domain.solution.PlanningScore;
 import org.optaplanner.core.api.domain.solution.PlanningSolution;
 import org.optaplanner.core.api.domain.solution.drools.ProblemFactCollectionProperty;
 import org.optaplanner.core.api.domain.valuerange.ValueRangeProvider;
+import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
+import org.optaplanner.persistence.xstream.api.score.buildin.hardsoft.HardSoftScoreXStreamConverter;
+
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamConverter;
 
 @PlanningSolution
+@XStreamAlias("FrequencyPlanner")
 public class FrequencyPlanner {
 
-	private int id;
 	private List<TRX> TRXList;
+	private List<Integer> frequencyList;
 
-	private List<int> frequencyList;
+	@XStreamConverter(HardSoftScoreXStreamConverter.class)
+	private HardSoftScore score;
 
 	public FrequencyPlanner() {
 
 	}
 
-	public FrequencyPlanner(int id, List<TRX> tRXList, List<Band> bandList) {
+	public FrequencyPlanner(List<TRX> tRXList, List<Integer> frequencyList) {
 		super();
-		this.id = id;
 		this.TRXList = tRXList;
-		this.bandList = bandList;
+		this.frequencyList = frequencyList;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
+	@PlanningEntityCollectionProperty
 	public List<TRX> getTRXList() {
 		return TRXList;
 	}
@@ -41,14 +42,23 @@ public class FrequencyPlanner {
 		TRXList = tRXList;
 	}
 
-	@ValueRangeProvider(id = "bandRange")
+	@ValueRangeProvider(id = "frequencyRange")
 	@ProblemFactCollectionProperty
-	public List<Band> getBandList() {
-		return bandList;
+	public List<Integer> getFrequencyList() {
+		return frequencyList;
 	}
 
-	public void setBandList(List<Band> bandList) {
-		this.bandList = bandList;
+	public void setFrequencyList(List<Integer> frequencyList) {
+		this.frequencyList = frequencyList;
+	}
+
+	@PlanningScore
+	public HardSoftScore getScore() {
+		return score;
+	}
+
+	public void setScore(HardSoftScore score) {
+		this.score = score;
 	}
 
 }
