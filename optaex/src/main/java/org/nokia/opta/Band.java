@@ -42,9 +42,6 @@ public class Band {
 	}
 
 	public boolean contains(int frequency) {
-		if (frequency <= end && frequency >= start)
-			return true;
-		else
-			return false;
+		return (frequency <= end && frequency >= start);
 	}
 }
