@@ -33,7 +33,7 @@
 	<classpathentry kind="lib" path="ref_lib/kie-soup-project-datamodel-commons-7.17.0.Final.jar"/>
 	<classpathentry kind="lib" path="ref_lib/mvel2-2.4.3.Final.jar"/>
 	<classpathentry kind="lib" path="ref_lib/optaplanner-benchmark-7.17.0.Final.jar"/>
-	<classpathentry kind="lib" path="ref_lib/optaplanner-core-7.17.0.Final.jar"/>
+	<classpathentry kind="lib" path="ref_lib/optaplanner-core-7.17.0.Final.jar" sourcepath="/home/master/.m2/repository/org/optaplanner/optaplanner-core/7.17.0.Final/optaplanner-core-7.17.0.Final-sources.jar"/>
 	<classpathentry kind="lib" path="ref_lib/optaplanner-persistence-common-7.17.0.Final.jar"/>
 	<classpathentry kind="lib" path="ref_lib/optaplanner-persistence-jackson-7.17.0.Final.jar"/>
 	<classpathentry kind="lib" path="ref_lib/optaplanner-persistence-jaxb-7.17.0.Final.jar"/>

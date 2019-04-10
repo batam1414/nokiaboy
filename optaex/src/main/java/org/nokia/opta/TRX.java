@@ -1,5 +1,6 @@
 package org.nokia.opta;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.optaplanner.core.api.domain.entity.PlanningEntity;
@@ -15,15 +16,24 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 public class TRX {
 	private int id;
 	private Band band;
-	private int frequency;
+
+	private Integer frequency;
 	private List<TRX> neighbours;
 
 	public int getId() {
 		return id;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public Band getBand() {
 		return band;
+	}
+
+	public void setBand(Band band) {
+		this.band = band;
 	}
 
 	@PlanningVariable(valueRangeProviderRefs = { "frequencyRange" })
@@ -31,7 +41,7 @@ public class TRX {
 		return frequency;
 	}
 
-	public void setFrequency(int frequency) {
+	public void setFrequency(Integer frequency) {
 		this.frequency = frequency;
 	}
 
@@ -43,6 +53,7 @@ public class TRX {
 		super();
 		this.id = id;
 		this.band = band;
+		this.neighbours = new LinkedList<TRX>();
 	}
 
 	@Override
