@@ -10,7 +10,7 @@ class TestBandContains {
 	@Test
 	void testContains() {
 		Band test = new Band(1,30,100);
-		boolean output = test.contains(50);
+		boolean output = test.contains(60);
 		assertEquals(true,output);
 	}
 }
