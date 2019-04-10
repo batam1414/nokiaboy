@@ -1,29 +1,24 @@
 //created on: Apr 8, 2019
 package org.nokia.opta.solver
+    dialect "java"
 
-//list any import classes here.
+import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScoreHolder;
 
-import 
+import org.nokia.opta.FrequencyPlanner;
+import org.nokia.opta.Band;
+import org.nokia.opta.TRX;
 
-//declare any global variables here
+global HardSoftScoreHolder scoreHolder;
 
+// ############################################################################
+// Hard constraints
+// ############################################################################
 
-
-
-rule "Your First Rule"
-
+rule "badNeighbours"
     when
-        //conditions
+        $trx_unu : TRX()
+        exists TRX($trx_unu in neighbours, $trx_unu.frequency == frequency)
+        
     then
-        //actions
-
-end
-
-rule "Your Second Rule"
-    //include attributes such as "salience" here...
-    when
-        //conditions
-    then
-        //actions
-
+        scoreHolder.addHardConstraintMatch(kcontext, -1);
 end
