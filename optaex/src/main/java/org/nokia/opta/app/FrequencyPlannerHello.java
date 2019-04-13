@@ -21,7 +21,7 @@ public class FrequencyPlannerHello {
 		FrequencyPlanner solvedFrequencyPlanner = solver.solve(unsolvedFrequencyPlanner);
 
 		// Display the result
-		System.out.println("\nSolved :\n" + Reader.display(solvedFrequencyPlanner));
+		Reader.display(solvedFrequencyPlanner);
 	}
 
 }

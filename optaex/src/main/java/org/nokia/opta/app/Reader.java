@@ -97,9 +97,9 @@ public class Reader {
 
 		try {
 
-			int score = solvedFrequencyPlanner.getScore().getHardScore();
+			int score = solvedFrequencyPlanner.getScore().getSoftScore();
 
-			System.out.println("Final hard score");
+			System.out.println("Final soft score");
 			System.out.println(score);
 			System.out.println("No soft score yet");
 

@@ -25,31 +25,31 @@ import org.optaplanner.examples.cloudbalancing.persistence.CloudBalancingGenerat
 
 public class CloudBalancingHelloWorld {
 
-    public static void main(String[] args) {
-        // Build the Solver
-        SolverFactory<CloudBalance> solverFactory = SolverFactory.createFromXmlResource(
-                "org/optaplanner/examples/cloudbalancing/solver/cloudBalancingSolverConfig.xml");
-        Solver<CloudBalance> solver = solverFactory.buildSolver();
+	public static void main(String[] args) {
+		// Build the Solver
+		SolverFactory<CloudBalance> solverFactory = SolverFactory
+				.createFromXmlResource("org/optaplanner/examples/cloudbalancing/solver/cloudBalancingSolverConfig.xml");
+		Solver<CloudBalance> solver = solverFactory.buildSolver();
 
-        // Load a problem with 400 computers and 1200 processes
-        CloudBalance unsolvedCloudBalance = new CloudBalancingGenerator().createCloudBalance(400, 1200);
+		// Load a problem with 400 computers and 1200 processes
+		CloudBalance unsolvedCloudBalance = new CloudBalancingGenerator().createCloudBalance(4, 12);
 
-        // Solve the problem
-        CloudBalance solvedCloudBalance = solver.solve(unsolvedCloudBalance);
+		// Solve the problem
+		CloudBalance solvedCloudBalance = solver.solve(unsolvedCloudBalance);
 
-        // Display the result
-        System.out.println("\nSolved cloudBalance with 400 computers and 1200 processes:\n"
-                + toDisplayString(solvedCloudBalance));
-    }
+		// Display the result
+		System.out.println(
+				"\nSolved cloudBalance with 400 computers and 1200 processes:\n" + toDisplayString(solvedCloudBalance));
+	}
 
-    public static String toDisplayString(CloudBalance cloudBalance) {
-        StringBuilder displayString = new StringBuilder();
-        for (CloudProcess process : cloudBalance.getProcessList()) {
-            CloudComputer computer = process.getComputer();
-            displayString.append("  ").append(process.getLabel()).append(" -> ")
-                    .append(computer == null ? null : computer.getLabel()).append("\n");
-        }
-        return displayString.toString();
-    }
+	public static String toDisplayString(CloudBalance cloudBalance) {
+		StringBuilder displayString = new StringBuilder();
+		for (CloudProcess process : cloudBalance.getProcessList()) {
+			CloudComputer computer = process.getComputer();
+			displayString.append("  ").append(process.getLabel()).append(" -> ")
+					.append(computer == null ? null : computer.getLabel()).append("\n");
+		}
+		return displayString.toString();
+	}
 
 }
