@@ -8,9 +8,6 @@ import org.optaplanner.core.api.domain.solution.PlanningSolution;
 import org.optaplanner.core.api.domain.solution.drools.ProblemFactCollectionProperty;
 import org.optaplanner.core.api.domain.valuerange.ValueRangeProvider;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
-import org.optaplanner.persistence.xstream.api.score.buildin.hardsoft.HardSoftScoreXStreamConverter;
-
-import com.thoughtworks.xstream.annotations.XStreamConverter;
 
 @PlanningSolution
 public class FrequencyPlanner {
@@ -28,7 +25,6 @@ public class FrequencyPlanner {
 	private List<TRX> TRXList;
 	private List<Integer> frequencyList;
 
-	@XStreamConverter(HardSoftScoreXStreamConverter.class)
 	private HardSoftScore score;
 
 	public FrequencyPlanner() {

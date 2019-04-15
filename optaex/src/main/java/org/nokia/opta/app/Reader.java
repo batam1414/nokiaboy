@@ -2,7 +2,7 @@ package org.nokia.opta.app;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -27,7 +27,7 @@ public class Reader {
 
 		Scanner scanner = new Scanner(new File("/home/master/Work/opta_inputs/input/case1/band"));
 
-		this.bandList = new LinkedList<Band>();
+		this.bandList = new ArrayList<Band>();
 
 		while (scanner.hasNext()) {
 			int start = scanner.nextInt();
@@ -37,7 +37,7 @@ public class Reader {
 			bandList.add(new Band(id, start, end));
 		}
 
-		this.frequencyList = new LinkedList<Integer>();
+		this.frequencyList = new ArrayList<Integer>();
 
 		for (Band band : bandList) {
 			for (int i = band.getStart(); i <= band.getEnd(); i++) {
@@ -51,7 +51,7 @@ public class Reader {
 		scanner.close();
 		scanner = new Scanner(new File("/home/master/Work/opta_inputs/input/case1/trx"));
 
-		this.TRXList = new LinkedList<TRX>();
+		this.TRXList = new ArrayList<TRX>();
 
 		while (scanner.hasNext()) {
 			int id = scanner.nextInt();
@@ -97,9 +97,9 @@ public class Reader {
 
 		try {
 
-			int score = solvedFrequencyPlanner.getScore().getSoftScore();
+			int score = solvedFrequencyPlanner.getScore().getHardScore();
 
-			System.out.println("Final soft score");
+			System.out.println("Final hard score");
 			System.out.println(score);
 			System.out.println("No soft score yet");
 

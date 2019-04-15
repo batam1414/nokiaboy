@@ -14,7 +14,6 @@ public class FrequencyPlannerHello {
 				.createFromXmlResource("org/nokia/opta/solver/frequencyPlannerSolverConfig.xml");
 		Solver<FrequencyPlanner> solver = solverFactory.buildSolver();
 
-		// Load a problem with 400 computers and 1200 processes
 		Reader reader = new Reader();
 		FrequencyPlanner unsolvedFrequencyPlanner = reader.read();
 
@@ -22,6 +21,7 @@ public class FrequencyPlannerHello {
 
 		// Display the result
 		Reader.display(solvedFrequencyPlanner);
+		// System.out.println(solver.explainBestScore());
 	}
 
 }

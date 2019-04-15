@@ -19,5 +19,5 @@ rule "badNeighbours"
         $trx_unu : TRX()
         exists TRX($trx_unu.frequency == frequency)
     then
-        scoreHolder.addSoftConstraintMatch(kcontext, -1000);
+        scoreHolder.addHardConstraintMatch(kcontext, -1000);
 end

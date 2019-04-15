@@ -1,6 +1,6 @@
 package org.nokia.opta;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.optaplanner.core.api.domain.entity.PlanningEntity;
@@ -38,6 +38,7 @@ public class TRX {
 	}
 
 	@PlanningVariable(valueRangeProviderRefs = { "frequencyRange" })
+
 	public Integer getFrequency() {
 		return frequency;
 	}
@@ -54,7 +55,7 @@ public class TRX {
 		super();
 		this.id = id;
 		this.band = band;
-		this.neighbours = new LinkedList<TRX>();
+		this.neighbours = new ArrayList<TRX>();
 	}
 
 	@Override
