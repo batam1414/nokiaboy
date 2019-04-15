@@ -1,0 +1,23 @@
+//created on: Apr 8, 2019
+package org.nokia.opta.solver
+    dialect "java"
+
+import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScoreHolder;
+
+import org.nokia.opta.FrequencyPlanner;
+import org.nokia.opta.Band;
+import org.nokia.opta.TRX;
+
+global HardSoftScoreHolder scoreHolder;
+
+// ############################################################################
+// Hard constraints
+// ############################################################################
+
+rule "badNeighbours"
+    when
+        $trx_unu : TRX()
+        exists TRX($trx_unu.frequency == frequency)
+    then
+        scoreHolder.addHardConstraintMatch(kcontext, -1000);
+end
