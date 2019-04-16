@@ -1,36 +1,35 @@
 package org.nokia.opta;
 
 public class Band {
-	private int id;
-	private int start;
-	private int end;
+	private Integer id;
+	private Integer start;
+	private Integer end;
 
 	public int getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public int getStart() {
+	public Integer getStart() {
 		return start;
 	}
 
-	public void setStart(int start) {
+	public void setStart(Integer start) {
 		this.start = start;
 	}
 
-	public int getEnd() {
+	public Integer getEnd() {
 		return end;
 	}
 
-	public void setEnd(int end) {
+	public void setEnd(Integer end) {
 		this.end = end;
 	}
 
-	public Band(int id, int start, int end) {
-		super();
+	public Band(Integer id, Integer start, Integer end) {
 		this.id = id;
 		this.start = start;
 		this.end = end;
@@ -41,7 +40,7 @@ public class Band {
 		return "Band [id=" + id + ", start=" + start + ", end=" + end + "]";
 	}
 
-	public boolean contains(int frequency) {
+	public boolean contains(Integer frequency) {
 		return (frequency <= end && frequency >= start);
 	}
 }
