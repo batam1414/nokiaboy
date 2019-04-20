@@ -17,7 +17,14 @@ global HardSoftScoreHolder scoreHolder;
 rule "badNeighbours"
     when
         $trx_unu : TRX()
-        exists TRX($trx_unu.frequency == frequency)
+        exists TRX($trx_unu.frequency == frequency, $trx_unu.id != id)
     then
-        scoreHolder.addHardConstraintMatch(kcontext, -1000);
+        scoreHolder.addHardConstraintMatch(kcontext, -10);
+end
+
+rule "badFrequency"
+	when
+		exists TRX(not band.hasFreq(frequency))
+	then
+		scoreHolder.addHardConstraintMatch(kcontext, -1000);
 end

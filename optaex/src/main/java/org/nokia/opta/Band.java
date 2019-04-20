@@ -40,7 +40,7 @@ public class Band {
 		return "Band [id=" + id + ", start=" + start + ", end=" + end + "]";
 	}
 
-	public boolean contains(Integer frequency) {
+	public boolean hasFreq(Integer frequency) {
 		return (frequency <= end && frequency >= start);
 	}
 }
