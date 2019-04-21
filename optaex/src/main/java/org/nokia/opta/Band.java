@@ -3,7 +3,7 @@ package org.nokia.opta;
 public class Band {
 	private Integer id;
 	private Integer start;
-	private Integer end;
+	private Integer stop;
 
 	public int getId() {
 		return id;
@@ -21,26 +21,22 @@ public class Band {
 		this.start = start;
 	}
 
-	public Integer getEnd() {
-		return end;
+	public Integer getStop() {
+		return stop;
 	}
 
-	public void setEnd(Integer end) {
-		this.end = end;
+	public void setStop(Integer stop) {
+		this.stop = stop;
 	}
 
-	public Band(Integer id, Integer start, Integer end) {
+	public Band(Integer id, Integer start, Integer stop) {
 		this.id = id;
 		this.start = start;
-		this.end = end;
+		this.stop = stop;
 	}
 
 	@Override
 	public String toString() {
-		return "Band [id=" + id + ", start=" + start + ", end=" + end + "]";
-	}
-
-	public boolean hasFreq(Integer frequency) {
-		return (frequency <= end && frequency >= start);
+		return "Band [id=" + id + ", start=" + start + ", end=" + stop + "]";
 	}
 }

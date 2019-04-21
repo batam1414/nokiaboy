@@ -135,7 +135,7 @@ public class Reader {
 		List<Integer> result = new ArrayList<Integer>();
 
 		for (Band band : paramBandList) {
-			for (int i = band.getStart(); i <= band.getEnd(); i++) {
+			for (int i = band.getStart(); i <= band.getStop(); i++) {
 				if (result.contains(i)) {
 				} else {
 					result.add(i);

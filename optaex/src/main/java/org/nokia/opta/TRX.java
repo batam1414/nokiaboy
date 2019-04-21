@@ -17,6 +17,10 @@ public class TRX {
 	private Integer frequency;
 	private List<TRX> neighbours;
 
+	public List<TRX> getNeighbours() {
+		return neighbours;
+	}
+
 	public TRX() {
 
 	}
