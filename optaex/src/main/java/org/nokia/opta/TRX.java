@@ -42,7 +42,6 @@ public class TRX {
 	}
 
 	@PlanningVariable(valueRangeProviderRefs = { "frequencyRange" })
-
 	public Integer getFrequency() {
 		return frequency;
 	}
@@ -67,4 +66,11 @@ public class TRX {
 		return "TRX [id=" + id + ", band=" + band + ", frequency=" + frequency + "]";
 	}
 
+	public boolean badSeparation(Integer freq) {
+		return ((freq == null || this.frequency == null) || !(Math.abs(freq - this.frequency) >= 2));
+	}
+
+	public boolean badFarSeparation(Integer freq) {
+		return ((freq == null || this.frequency == null) || !(Math.abs(freq - this.frequency) >= 1));
+	}
 }
