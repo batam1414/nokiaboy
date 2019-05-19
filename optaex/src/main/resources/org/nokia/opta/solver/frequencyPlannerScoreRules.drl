@@ -25,9 +25,17 @@ end
 
 rule "badFarNeighbours"
     when
-        TRX( $freq : frequency, $neig : neighbours)
+    	TRX($id: id, $freq : frequency, $neig: neighbours)
         TRX( $neig_plus : neighbours ) from $neig
-		TRX( badFarSeparation($freq) ) from $neig_plus
+		TRX($id != id, badFarSeparation($freq) ) from $neig_plus
     then
-        scoreHolder.addHardConstraintMatch(kcontext, -10);
+        scoreHolder.addHardConstraintMatch(kcontext, -5);
 end
+
+rule "badFrequency"
+	when 
+		$trx: TRX($freq: frequency, band.(start > $freq || stop < $freq))
+	then
+		scoreHolder.addHardConstraintMatch(kcontext, -1000);
+end
+	

@@ -12,47 +12,65 @@ import org.nokia.opta.app.Reader;
 public class AppTest {
 
 	@Test
-	public void testCaseOne() throws FileNotFoundException {
+	public void testWhen3Trx2Freq1Band() throws FileNotFoundException {
 		Reader reader = new Reader();
 		FrequencyPlanner unsolved = reader.read("./src/main/resources/org/nokia/opta/solver/testCases/case1/band",
 				"./src/main/resources/org/nokia/opta/solver/testCases/case1/trx");
 		FrequencyPlanner solved = FrequencyPlannerHello.solve(unsolved);
-		assertEquals(solved.getScore().getHardScore(), -10);
+		assertEquals(solved.getScore().getHardScore(), -65);
+	}
+	
+	@Test
+	public void testWhen4Trx6Freq1Band() throws FileNotFoundException {
+		Reader myRead = new Reader();
+		FrequencyPlanner unsolved = myRead.read("./src/main/resources/org/nokia/opta/solver/testCases/case2/band", 
+				"./src/main/resources/org/nokia/opta/solver/testCases/case2/trx");
+		FrequencyPlanner solved = FrequencyPlannerHello.solve(unsolved);
+		assertEquals(solved.getScore().getHardScore(), -60);
 	}
 
 	@Test
-	public void testCaseFive() throws FileNotFoundException {
+	public void testWhen2Trx9Freq2Bands() throws FileNotFoundException {
+		Reader myRead = new Reader();
+		FrequencyPlanner unsolved = myRead.read("./src/main/resources/org/nokia/opta/solver/testCases/case3/band", 
+				"./src/main/resources/org/nokia/opta/solver/testCases/case3/trx");
+		FrequencyPlanner solved = FrequencyPlannerHello.solve(unsolved);
+		assertEquals(solved.getScore().getHardScore(), 0);
+	}
+	
+	@Test
+	public void testWhen5Trx2Freq1Band() throws FileNotFoundException {
 		Reader myRead = new Reader();
 		FrequencyPlanner unsolved = myRead.read("./src/main/resources/org/nokia/opta/solver/testCases/case5/band", 
 				"./src/main/resources/org/nokia/opta/solver/testCases/case5/trx");
 		FrequencyPlanner solved = FrequencyPlannerHello.solve(unsolved);
-		assertEquals(solved.getScore().getHardScore(), -10);
+		assertEquals(solved.getScore().getHardScore(), -130);
 	}
 	
 	@Test
-	public void testCaseSix() throws FileNotFoundException {
+	public void testWhen7Trx7Freq2Bands() throws FileNotFoundException {
 		Reader myRead = new Reader();
 		FrequencyPlanner unsolved = myRead.read("./src/main/resources/org/nokia/opta/solver/testCases/case6/band", 
 				"./src/main/resources/org/nokia/opta/solver/testCases/case6/trx");
 		FrequencyPlanner solved = FrequencyPlannerHello.solve(unsolved);
-		assertEquals(solved.getScore().getHardScore(), -20);
+		assertEquals(solved.getScore().getHardScore(), -30);
 	}
 
 	@Test
-	public void testCaseSeven() throws FileNotFoundException {
+	public void testWhen10Trx7Freq2Bands() throws FileNotFoundException {
 		Reader myRead = new Reader();
 		FrequencyPlanner unsolved = myRead.read("./src/main/resources/org/nokia/opta/solver/testCases/case7/band", 
 				"./src/main/resources/org/nokia/opta/solver/testCases/case7/trx");
 		FrequencyPlanner solved = FrequencyPlannerHello.solve(unsolved);
-		assertEquals(solved.getScore().getHardScore(), -70);
+		assertEquals(solved.getScore().getHardScore(), -15);
 	}
 	
-	@Test
-	public void testCaseEight() throws FileNotFoundException {
-		Reader myRead = new Reader();
-		FrequencyPlanner unsolved = myRead.read("./src/main/resources/org/nokia/opta/solver/testCases/case8/band", 
-				"./src/main/resources/org/nokia/opta/solver/testCases/case8/trx");
-		FrequencyPlanner solved = FrequencyPlannerHello.solve(unsolved);
-		assertEquals(solved.getScore().getHardScore(), -2440);
-	}
+//	@Test
+//	public void testCaseEight() throws FileNotFoundException {
+//		Reader myRead = new Reader();
+//		FrequencyPlanner unsolved = myRead.read("./src/main/resources/org/nokia/opta/solver/testCases/case8/band", 
+//				"./src/main/resources/org/nokia/opta/solver/testCases/case8/trx");
+//		FrequencyPlanner solved = FrequencyPlannerHello.solve(unsolved);
+//		assertEquals(solved.getScore().getHardScore(), -67930);
+//	}
 }
